@@ -16,8 +16,8 @@ EURI_API_KEY = os.getenv('EURI_API_KEY')
 data_processor = DataProcessor()
 
 st.set_page_config(
-    page_title="💬 Chat with your documents",
-    page_icon="🤖",
+    page_title="💬 MediChat Pro - Medical Document Assistant",
+    page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -90,7 +90,7 @@ if "chat_model" not in st.session_state:
     
 st.markdown("""
 <div style="text-align: center; padding: 2rem 0;">
-    <h1 style="color: #0DBDBF; font-size: 3rem; margin-bottom: 0.5rem;">🤖 Document Chat Asistant</h1>
+    <h1 style="color: #0DBDBF; font-size: 3rem; margin-bottom: 0.5rem;">🏥 MediChat Pro</h1>
     <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Your Intelligent Document Assistant</p>
 </div>
 """, unsafe_allow_html=True)
@@ -108,7 +108,7 @@ with st.sidebar:
         
         # Process document
         if st.button("🚀 Process Documents", type="primary"):
-            with st.spinner("Processing your documents..."):
+            with st.spinner("Processing your medical documents..."):
                 
                 # Extract text from all PDFs
                 all_texts =[]
@@ -144,7 +144,7 @@ with st.sidebar:
                     st.balloons()
                 
 # Main chat interface
-st.markdown("### 💬 Chat with Your Documents")
+st.markdown("### 💬 Chat with Your Medical Documents")
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -153,7 +153,7 @@ for message in st.session_state.messages:
         st.caption(message["timestamp"])
 
 # Chat input
-if prompt := st.chat_input("Ask about your documents..."):
+if prompt := st.chat_input("Ask about your medical documents..."):
     # Add user message to chat history
     timestamp = time.strftime("%H:%M")
     st.session_state.messages.append({
@@ -180,27 +180,12 @@ if prompt := st.chat_input("Ask about your documents..."):
                 
                 
                 # Create prompt with context
-                system_prompt = f"""You are an expert AI assistant specializing in providing comprehensive, precise, and helpful answers. When answering questions:
+                system_prompt = f"""You are MediChat Pro, an intelligent medical document assistant. 
+                Based on the following medical documents, provide accurate and helpful answers. 
+                If the information is not in the documents, clearly state that.
+                when you are giving an answer make sure that try to take help from llm and give me a full diagnosis of the problem.
 
-                1. **Be Precise**: Provide accurate, detailed information based on the context
-                2. **Include Examples**: Where appropriate, provide practical examples to illustrate concepts
-                3. **Add Documentation**: Include relevant code snippets, commands, or documentation when helpful
-                4. **Structure Well**: Use clear headings, bullet points, and formatting for readability
-                5. **Be Comprehensive**: Cover all relevant aspects of the question
-                6. **Cite Sources**: Reference the specific documents you're using for information
-
-                Format your responses with:
-                - Clear headings using markdown
-                - Code blocks for examples and commands
-                - Bullet points for lists
-                - Bold text for important concepts
-                - Step-by-step instructions when applicable
-
-                If the context doesn't contain relevant information, say so politely.
-
-                Always base your answer on the provided context, but enhance it with your knowledge to make it more helpful and comprehensive.
-                
-                Documents:
+                Medical Documents:
                 {context}
 
                 User Question: {prompt}
@@ -227,7 +212,7 @@ if prompt := st.chat_input("Ask about your documents..."):
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #666; font-size: 0.9rem;">
-    <p>🤖 Powered by AI & RAG | 🗎 Document Intelligence | Built with ❤️ and crafted by Raunak Ravi.</p>
+    <p>🤖 Powered by AI & RAG | 🗎 🏥 Medical Document Intelligence | Built with ❤️ and crafted by Raunak Ravi.</p>
 </div>
 """, unsafe_allow_html=True)    
                 
