@@ -1,0 +1,12 @@
+streamlit
+fpdf
+pypdf
+faiss-cpu
+langchain
+euriai
+dotenv
+langchain_community
+sentence-transformers
+python-docx
+txtai
+langchain_huggingface
