@@ -1,6 +1,6 @@
-# 🤖 Document ChatBot Assistant - RAG Chat Application
+# 🤖 MediChat Pro (Document ChatBot Assistant - RAG Chat Application)
 
-A clean, interactive RAG (Retrieval-Augmented Generation) chat application that lets you ask questions about your documents using AI.
+A clean, interactive RAG (Retrieval-Augmented Generation) chat application that lets you ask questions about your medical documents using AI.
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@ streamlit run main.py
 
 ### 4. Streamlit Public application link
 ```bash
-streamlit run main.py
+https://document-chat-assistant.streamlit.app/
 ```
 
 The app will automatically:
@@ -66,20 +66,19 @@ Configuration in `config.py`:
 ```python
 ## .env file contains:-
 # Euri API
-EURI_API_KEY = "euri-0d0f7d9990aaace6d3296a6970bc301f18bd04c09e3434fd8a94c024c4bab793"
+EURI_API_KEY = "euri-0d0f7d9990aaace6d3296a6970bc301f18bd04c09e3434fd8a94c024c4bab893"
 ```
 
 ## 💬 How to Use
 
 1. **Start the app** - Run `streamlit run app.py`
-2. **Wait for loading** - Upload your documents
-3. **Start chatting** - Ask questions about your documents
+2. **Wait for loading** - Upload one or more documents
+3. **Start chatting** - Ask questions about your medical documents
 
 ### Example Questions:
-- "What is machine learning?"
 - "Summarize the key points from the documents"
 - "Give me some practical examples"
-- "Explain deep learning concepts"
+- "Explain the causes of the disease"
 
 ## 🎯 Key Components
 
@@ -101,7 +100,6 @@ EURI_API_KEY = "euri-0d0f7d9990aaace6d3296a6970bc301f18bd04c09e3434fd8a94c024c4b
 
 See `requirements.txt` for the complete list of dependencies:
 - streamlit
-- chromadb
 - sentence-transformers
 - requests
 - python-dotenv
